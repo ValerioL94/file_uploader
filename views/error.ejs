@@ -1,0 +1,14 @@
+<%- contentFor('page') %>
+<h1><%= error.status %> <%= message %></h1>
+<% if (error.status === 404) { %>
+<p>Oops! This page does not exist!</p>
+<% } else { %>
+<p>Seems like a technical problem!</p>
+<% } %>
+<div>
+  <img
+    class="sorry_gif"
+    src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnpoajU0OGRidzF5aDk4bmUzODIyZXE5emh6ZnBtNjg2NXM1MmlkdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlSaBOVulBlVOgM/giphy.gif"
+    alt="south park apology gif"
+  />
+</div>
