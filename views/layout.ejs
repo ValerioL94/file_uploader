@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div id="content">
+      <header>
+        <h1><a href="/">File Uploader</a></h1>
+      </header>
+      <main>
+        <nav>
+          <span style="display: flex">
+            <a href="/">Home</a>
+            <a href="/user/sign-up">Sign up</a>
+            <a href="/user/log-in">Log in</a>
+          </span>
+          <span style="display: flex"><a href="/user/log-out">Log out</a></span>
+        </nav>
+        <section id="dynamic-page"><%- page %></section>
+      </main>
+      <footer>
+        <a href="https://github.com/ValerioL94">
+          <span>Copyright © 2024 ValerioL94</span>
+          <img
+            class="logo pulse"
+            src="/images/github-mark.svg"
+            alt="github logo"
+          />
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
