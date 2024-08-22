@@ -1,0 +1,95 @@
+:root {
+  --main-font-color: white;
+  --main-bg-color: black;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+#content {
+  display: grid;
+  grid-template-rows: 100px auto 50px;
+  min-height: 100%;
+}
+a {
+  font-weight: bolder;
+  color: rgb(70, 70, 255);
+  transition: all ease-in-out 0.5s;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: crimson;
+  outline: none;
+  text-decoration: underline;
+}
+header {
+  color: var(--main-font-color);
+  background-color: var(--main-bg-color);
+  padding: 0 25px;
+  border-bottom: 5px solid gray;
+}
+header a {
+  color: white;
+}
+main {
+  padding: 25px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  min-height: 50px;
+  border-bottom: 1px solid gray;
+}
+nav a {
+  padding: 15px;
+}
+footer {
+  display: flex;
+  color: var(--main-font-color);
+  background-color: var(--main-bg-color);
+  padding: 0 25px;
+  border-top: 5px solid gray;
+}
+footer a {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo {
+  height: 25px;
+  filter: invert() contrast(200%);
+}
+
+.error-list {
+  color: crimson;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sorry_gif {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 50px;
+}
+
+.pulse:hover {
+  animation: pulse ease-in-out 2.75s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
