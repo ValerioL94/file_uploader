@@ -1,6 +1,5 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
 import createError, { HttpError } from 'http-errors';
-import dotenv from 'dotenv';
 import expressLayouts from 'express-ejs-layouts';
 import path from 'path';
 import expressSession from 'express-session';
@@ -8,10 +7,10 @@ import passport from 'passport';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import { PrismaClient } from '@prisma/client';
 import './utils/passport';
-// dotenv.config();
 
 import indexRouter from './routes/indexRouter';
 import userRouter from './routes/userRouter';
+import folderRouter from './routes/folderRouter';
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -48,7 +47,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
-// app.use('/folders', folderRouter);
+app.use('/folders', folderRouter);
 // app.use('/files', fileRouter);
 // app.use('/share', shareRouter);
 
