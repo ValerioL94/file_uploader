@@ -3,7 +3,7 @@
 <% if (locals.user) { %>
 <h1>Welcome back<span style="color: crimson"> <%= user.username %></span></h1>
 <% } else { %>
-  <h1><%= title %></h1>
+<h1><%= title %></h1>
 <form method="POST">
   <div class="form-group">
     <label for="username">Username:</label>
@@ -18,7 +18,9 @@
       minlength="4"
       required
     />
-    <p class="help" style="font-size: small; color: crimson;">*Username must be minimum 4 characters</p>
+    <p class="help" style="font-size: small; color: crimson">
+      *Username must be minimum 4 characters
+    </p>
     <label for="email">E-mail:</label>
     <input
       type="email"
@@ -40,7 +42,9 @@
       minlength="8"
       required
     />
-    <p class="help" style="font-size: small; color: crimson">*Password must be minimum 8 characters</p>
+    <p class="help" style="font-size: small; color: crimson">
+      *Password must be minimum 8 characters
+    </p>
     <label for="passwordConfirmation">Confirm password:</label>
     <input
       type="password"

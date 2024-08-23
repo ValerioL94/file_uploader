@@ -3,11 +3,18 @@
 <% if (locals.user) { %>
 <h2>Welcome back<span style="color: crimson"><%= user.username %></span></h2>
 <% } else { %>
-  <h1><%= title %></h1>
+<h1><%= title %></h1>
 <form method="post">
   <div class="form-group">
     <label for="email">E-mail:</label>
-    <input type="email" autocomplete="email" class="form-control" name="email" id="email" required />
+    <input
+      type="email"
+      autocomplete="email"
+      class="form-control"
+      name="email"
+      id="email"
+      required
+    />
     <label for="password">Password:</label>
     <input
       type="password"
