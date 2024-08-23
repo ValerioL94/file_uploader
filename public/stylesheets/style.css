@@ -51,6 +51,15 @@ nav a {
 #dynamic-page {
   padding: 25px;
 }
+#dynamic-title::before {
+  content: '> ';
+}
+#dynamic-title {
+  font-size: medium;
+}
+#dynamic-title::after {
+  content: ' >';
+}
 form {
   display: flex;
   flex-direction: column;

@@ -36,7 +36,10 @@
           </span>
           <% } %>
         </nav>
-        <section id="dynamic-page"><%- page %></section>
+        <section id="dynamic-page">
+          <h1 id="dynamic-title"><%= title %></h1>
+          <%- page %>
+        </section>
       </main>
       <footer>
         <a href="https://github.com/ValerioL94">

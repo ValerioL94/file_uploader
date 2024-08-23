@@ -1,18 +1,20 @@
 <%- contentFor('page') %>
-<h1><%= title %></h1>
+
+<% if (locals.user) { %>
+<h2>
+  Welcome back
+  <%= user.username %>
+</h2>
+<p>Check your folders <a href="/folders/:userId">here</a>.</p>
+<% } else { %>
 <div class="gen-container">
   <h2>
     Welcome to file uploader, a simple and easy to manage personal storage app.
   </h2>
-  <% if (!locals.user) { %>
-
   <p>
     If you don't have an account yet
     <a href="/user/sign-up">sign up here</a>.
   </p>
   <p>Or <a href="/user/log-in">log in here</a> to begin!</p>
-  <% } else { %>
-  <h2>Welcome back<%= user.username %></h2>
-  <p>Check your folders <a href="/folders/:userId">here</a>.</p>
 </div>
 <% } %>

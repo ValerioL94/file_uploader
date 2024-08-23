@@ -1,9 +1,8 @@
 <%- contentFor('page') %>
 
 <% if (locals.user) { %>
-<h1>Welcome back<span style="color: crimson"> <%= user.username %></span></h1>
+<h1>Welcome back <span style="color: crimson"> <%= user.username %></span></h1>
 <% } else { %>
-<h1><%= title %></h1>
 <form method="POST">
   <div class="form-group">
     <label for="username">Username:</label>
