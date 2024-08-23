@@ -1,13 +1,13 @@
 <%- contentFor('page') %>
 
+<div class="gen-container">
 <% if (locals.user) { %>
 <h2>
   Welcome back
   <%= user.username %>
 </h2>
-<p>Check your folders <a href="/folders/:userId">here</a>.</p>
+<p>Check your folders <a href="/folders">here</a>.</p>
 <% } else { %>
-<div class="gen-container">
   <h2>
     Welcome to file uploader, a simple and easy to manage personal storage app.
   </h2>
