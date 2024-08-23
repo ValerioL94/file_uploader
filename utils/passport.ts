@@ -1,9 +1,7 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import bcrypt from 'bcryptjs';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../prisma/client';
 
 const strategy = new LocalStrategy(
   { usernameField: 'email' },
@@ -31,7 +29,7 @@ passport.serializeUser((user: Express.User, done) => {
   done(null, user.id);
 });
 
-passport.deserializeUser(async (id: string, done) => {
+passport.deserializeUser(async (id: Express.User['id'], done) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: id },

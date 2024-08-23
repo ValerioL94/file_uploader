@@ -7,7 +7,8 @@ import expressSession from 'express-session';
 import passport from 'passport';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import { PrismaClient } from '@prisma/client';
-dotenv.config(); // to be removed?
+import './utils/passport';
+// dotenv.config();
 
 import indexRouter from './routes/indexRouter';
 import userRouter from './routes/userRouter';
@@ -62,7 +63,7 @@ app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { title: 'Error' });
+  res.render('error', { title: 'Error', user: req.user });
 });
 
 app.listen(port, () => {
