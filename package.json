@@ -9,7 +9,7 @@
     "start": "node app.js",
     "dev": "nodemon app.ts",
     "killport": "kill -9 $(lsof -t -i:3000)",
-    "ejs": "npx prettier --plugin=prettier-plugin-ejs --write ."
+    "ejs": "npx prettier --plugin=prettier-plugin-ejs --write  views"
   },
   "repository": {
     "type": "git",
