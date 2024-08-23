@@ -1,6 +1,7 @@
 :root {
   --main-font-color: white;
   --main-bg-color: black;
+  --myBlue: blue;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -16,13 +17,13 @@ body {
 }
 a {
   font-weight: bolder;
-  color: rgb(70, 70, 255);
+  color: var(--myBlue);
   transition: all ease-in-out 0.5s;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: crimson;
+  color: red;
   outline: none;
   text-decoration: underline;
 }
@@ -47,6 +48,65 @@ nav {
 nav a {
   padding: 15px;
 }
+#dynamic-page {
+  padding: 25px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.form-group,
+.gen-container {
+  max-width: 900px;
+  border: 1px solid black;
+  box-shadow: 0px 5px 10px 0px black;
+  border-radius: 10px;
+  padding: 15px;
+}
+.form-control {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+.form-control:hover,
+.form-control:focus {
+  border: 2px solid var(--myBlue);
+  outline: none;
+}
+input + .help {
+  display: none;
+}
+input:focus + .help {
+  display: block;
+}
+input:user-invalid {
+  border-color: red;
+}
+input:valid {
+  border-color: green;
+}
+
+.form-submit {
+  min-height: 30px;
+  min-width: 80px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--myBlue);
+}
+.form-submit:hover,
+.form-submit:focus {
+  color: green;
+  border-color: green;
+  outline: none;
+}
+
 footer {
   display: flex;
   color: var(--main-font-color);
@@ -65,12 +125,18 @@ footer a {
   filter: invert() contrast(200%);
 }
 
-.error-list {
-  color: crimson;
+.errors-list {
+  color: red;
   font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.errors-list li,
+.gen-container p {
+  width: 100%;
+  max-width: 900px;
 }
 .sorry_gif {
   width: 100%;

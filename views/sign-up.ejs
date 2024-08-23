@@ -1,0 +1,58 @@
+<%- contentFor('page') %>
+
+<% if (locals.user) { %>
+<h1>Welcome back<span style="color: crimson"> <%= user.username %></span></h1>
+<% } else { %>
+  <h1><%= title %></h1>
+<form method="POST">
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      autocomplete="username"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="JohnDoe"
+      value="<%= locals.newUser ? newUser.username : '' %>"
+      minlength="4"
+      required
+    />
+    <p class="help" style="font-size: small; color: crimson;">*Username must be minimum 4 characters</p>
+    <label for="email">E-mail:</label>
+    <input
+      type="email"
+      autocomplete="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="johndoe@gmail.com"
+      value="<%= locals.newUser ? newUser.email : '' %>"
+      required
+    />
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      autocomplete="new-password"
+      class="form-control"
+      id="password"
+      name="password"
+      minlength="8"
+      required
+    />
+    <p class="help" style="font-size: small; color: crimson">*Password must be minimum 8 characters</p>
+    <label for="passwordConfirmation">Confirm password:</label>
+    <input
+      type="password"
+      autocomplete="new-password"
+      class="form-control"
+      id="passwordConfirmation"
+      name="passwordConfirmation"
+      minlength="8"
+      required
+    />
+    <button class="form-submit" type="submit">Sign up</button>
+  </div>
+</form>
+<%- include('./partials/error_list') %>
+<% } %>

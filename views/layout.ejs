@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -22,10 +22,19 @@
         <nav>
           <span style="display: flex">
             <a href="/">Home</a>
+            <% if (!locals.user) { %>
             <a href="/user/sign-up">Sign up</a>
             <a href="/user/log-in">Log in</a>
+            <% } else { %>
+            <a href="/folders/:userId">Folders</a>
+            <a href="/share/:userId">Shared</a>
+            <% } %>
           </span>
-          <span style="display: flex"><a href="/user/log-out">Log out</a></span>
+          <% if (locals.user) { %>
+          <span style="display: flex">
+            <a href="/user/log-out">Log out</a>
+          </span>
+          <% } %>
         </nav>
         <section id="dynamic-page"><%- page %></section>
       </main>
