@@ -1,0 +1,16 @@
+<%- contentFor('page') %>
+
+<div class="gen-container">
+<% if (locals.user) { %>
+<% if (locals.folders && folders.length) { %>
+<% folders.forEach(folder => { %>
+<a href="/folders/<%= folder.id %>"><%= folder.title %></a>
+<% }) %>
+<% } else { %>
+<h2>You have no folders.</h2>
+<% } %>
+<% } else { %>
+<p>Access denied</p>
+<% } %>
+<a href="/folders/create">Add folder</a>
+</div>
