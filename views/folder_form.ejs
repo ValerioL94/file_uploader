@@ -1,0 +1,13 @@
+<%- contentFor('page') %>
+
+<% if (locals.user) { %>
+<form method="POST">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control" minlength="1" placeholder="New Folder" />
+    <button class="form-submit" type="submit">Confirm</button>
+  </div>
+</form>
+<% } else { %>
+<p>Access denied</p>
+<% } %>
