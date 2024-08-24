@@ -149,20 +149,23 @@ input:valid {
   height: 25px;
 }
 
-.folder-link:focus {
-  border: 3px solid red;
-  border-radius: 5px;
-  padding: 5px;
-  outline: none;
-}
 .folder-options {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
   height: 50px;
   padding: 10px 0;
   box-sizing: border-box;
 }
+.folder-link {
+  padding: 5px;
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+.folder-link:focus {
+  border-color: red;
+}
+
 footer {
   display: flex;
   color: var(--main-font-color);
