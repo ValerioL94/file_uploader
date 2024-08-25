@@ -54,4 +54,12 @@ export const file_upload_post = [
   }),
 ];
 
-// export const file_upload_post
+// export const file_edit_get = asyncHandler(async (req, res, next) => {});
+// export const file_edit_post = asyncHandler(async (req, res, next) => {});
+
+export const file_delete_get = asyncHandler(async (req, res, next) => {
+  await prisma.file.delete({
+    where: { id: req.params.fileId },
+  });
+  res.redirect(`/folders/${req.params.folderId}/files`);
+});
