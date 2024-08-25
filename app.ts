@@ -48,7 +48,6 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/folders', folderRouter);
-
 // app.use('/share', shareRouter);
 
 app.use(function (req, res, next) {
