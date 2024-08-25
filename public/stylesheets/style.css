@@ -100,6 +100,17 @@ label {
   border: 2px solid var(--myBlue);
   outline: none;
 }
+.form-control-file {
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+.form-control-file:hover,
+.form-control-file:focus {
+  border: 2px solid var(--myBlue);
+  outline: none;
+}
 input + .help {
   display: none;
 }
@@ -120,6 +131,7 @@ input:valid {
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
+  border: 3px solid black;
   color: var(--myBlue);
 }
 .form-submit:hover,
