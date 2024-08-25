@@ -1,18 +1,44 @@
 <%- contentFor('page') %>
 
 <div class="gen-container">
-<% if (locals.user) { %>
-<% if (files && files.length) { %>
-    <p>There are <%= files.length %> files.</p>
-<% } else { %>
-<h2>There are no files.</h2>
-<% } %>
-<% } else { %>
-<p>Access denied</p>
-<% } %>
-<div style="display: flex; padding-left: 15px;">
-    <a href="files/upload" class="folder-link"><img height="30px" src="/images/add_file.png" alt="add file icon" title="upload file"></a>
-    </div>
+  <% if (locals.user) { %> <% if (locals.files && files.length) { %>
+  <ul class="file-ul">
+    <% files.forEach(file => { %>
+    <li>
+      <a href="files/<%= file.id %>"><%= file.title %></a>
+      <div class="file-options">
+        <a href="files/<%= file.id %>/edit" class="file-link"
+          ><img
+            src="/images/edit_file.png"
+            alt="edit file icon"
+            title="edit file"
+        /></a>
+        <a
+          href="files/<%= file.id %>/delete"
+          class="file-link"
+          onclick="return confirm('Delete file <<%= file.title %>> ?')"
+          ><img
+            src="/images/delete_file.png"
+            alt="delete file icon"
+            title="delete file"
+        /></a>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <h2>There are no files.</h2>
+  <% } %>
+  <% } else { %>
+  <p>Access denied</p>
+  <% } %>
+  <div style="display: flex; padding-left: 15px">
+    <a href="files/upload" class="file-link"
+      ><img
+        src="/images/add_file.png"
+        alt="add file icon"
+        title="upload file"
+    /></a>
+  </div>
 </div>
 <%- include('./partials/back-link') %>
-
