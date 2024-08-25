@@ -9,8 +9,8 @@ import {
   folder_edit_get,
   folder_edit_post,
   folder_delete_get,
-  file_list_get,
 } from '../controllers/folderController';
+import fileRouter from './fileRouter';
 
 folderRouter.use(isAuth);
 folderRouter.get('/', folder_list_get);
@@ -20,6 +20,6 @@ folderRouter
   .get(folder_edit_get)
   .post(folder_edit_post);
 folderRouter.get('/:folderId/delete', folder_delete_get);
-folderRouter.use('/:folderId/files', file_list_get);
+folderRouter.use('/:folderId/files', fileRouter);
 
 export default folderRouter;

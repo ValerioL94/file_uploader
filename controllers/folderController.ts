@@ -53,17 +53,3 @@ export const folder_delete_get = asyncHandler(async (req, res, next) => {
   });
   res.redirect('/folders');
 });
-
-export const file_list_get = asyncHandler(async (req, res, next) => {
-  console.log(req.params.folderId);
-  const folder = await prisma.folder.findUnique({
-    where: { id: req.params.folderId },
-    include: { files: true },
-  });
-  res.render('file_list', {
-    title: folder?.title,
-    folder,
-    files: folder?.files,
-    user: req.user,
-  });
-});
