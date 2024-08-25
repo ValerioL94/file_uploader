@@ -40,8 +40,8 @@ model File {
   url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  folder    Folder   @relation(fields: [folderId], references: [id])
-  folderId  String
+  folder    Folder?  @relation(fields: [folderId], references: [id])
+  folderId  String?
 }
 
 model Session {
