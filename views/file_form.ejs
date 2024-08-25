@@ -1,0 +1,15 @@
+<%- contentFor('page') %>
+
+<% if (locals.user) { %>
+<form enctype="multipart/form-data" method="POST">
+    <div class="form-group">
+      <input type="file" class="form-control-file" name="uploaded_file" required>
+      <input type="text" class="form-control" placeholder="File name..." name="file_name" required>
+<button type="submit" class="form-submit">Submit</button>
+    </div>
+  </form>
+<% } else { %>
+<p>Access denied</p>
+<% } %>
+<%- include('./partials/back-link') %>
+
