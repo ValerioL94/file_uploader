@@ -1,11 +1,11 @@
 import asyncHandler from 'express-async-handler';
 import prisma from '../prisma/client';
 
-export const folders_get = asyncHandler(async (req, res, next) => {
+export const folder_list_get = asyncHandler(async (req, res, next) => {
   const folders = await prisma.folder.findMany({
     orderBy: { updatedAt: 'desc' },
   });
-  res.render('folders', { title: 'Your folders', user: req.user, folders });
+  res.render('folder_list', { title: 'Your folders', user: req.user, folders });
 });
 
 export const folder_create_get = asyncHandler(async (req, res, next) => {
@@ -28,9 +28,7 @@ export const folder_create_post = asyncHandler(async (req, res, next) => {
 
 export const folder_edit_get = asyncHandler(async (req, res, next) => {
   const folder = await prisma.folder.findUnique({
-    where: {
-      id: req.params.folderId,
-    },
+    where: { id: req.params.folderId },
   });
   res.render('folder_form', {
     title: 'Update folder',
@@ -54,4 +52,18 @@ export const folder_delete_get = asyncHandler(async (req, res, next) => {
     where: { id: req.params.folderId },
   });
   res.redirect('/folders');
+});
+
+export const file_list_get = asyncHandler(async (req, res, next) => {
+  console.log(req.params.folderId);
+  const folder = await prisma.folder.findUnique({
+    where: { id: req.params.folderId },
+    include: { files: true },
+  });
+  res.render('file_list', {
+    title: folder?.title,
+    folder,
+    files: folder?.files,
+    user: req.user,
+  });
 });
