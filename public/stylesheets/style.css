@@ -141,14 +141,16 @@ input:valid {
   outline: none;
 }
 
-.folder-ul {
+.folder-ul,
+.file-ul {
   display: flex;
   flex-direction: column;
   list-style: none;
   padding: 0 10px;
 }
 
-.folder-ul li {
+.folder-ul li,
+.file-ul li {
   padding: 10px;
   border-bottom: 1px solid gray;
   display: flex;
@@ -157,25 +159,33 @@ input:valid {
   height: 50px;
   box-sizing: border-box;
 }
-.folder-ul li a {
-  height: 25px;
+.folder-ul li a,
+.file-ul li a {
+  height: 30px;
 }
 
-.folder-options {
+.folder-options,
+.file-options {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   height: 50px;
   padding: 10px 0;
   box-sizing: border-box;
 }
-.folder-link {
+.folder-link,
+.file-link {
   padding: 5px;
   border: 3px solid transparent;
   border-radius: 5px;
 }
-.folder-link:focus {
+.folder-link:focus,
+.file-link:focus {
   border-color: red;
+}
+.folder-link img,
+.file-link img {
+  height: 30px;
 }
 
 footer {
