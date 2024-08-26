@@ -142,7 +142,8 @@ input:valid {
 }
 
 .folder-ul,
-.file-ul {
+.file-ul,
+.file-ul-detail {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -156,12 +157,22 @@ input:valid {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  min-height: 50px;
+  box-sizing: border-box;
+}
+.file-ul-detail li {
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 50px;
   box-sizing: border-box;
 }
 .folder-ul li a,
-.file-ul li a {
-  height: 30px;
+.file-ul li a,
+.file-ul-detail li a {
+  min-height: 30px;
 }
 
 .folder-options,
