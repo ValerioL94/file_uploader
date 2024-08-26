@@ -4,8 +4,7 @@
   "description": "Building a simple version of a personal storage service",
   "main": "app.js",
   "scripts": {
-    "build": "npx tsc",
-    "buildWatch": "npx tsc -w",
+    "build": "npx tscx --copyfiles",
     "start": "prisma db push && node app.js",
     "dev": "nodemon app.ts",
     "killport": "kill -9 $(lsof -t -i:3000)",
