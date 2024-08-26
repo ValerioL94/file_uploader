@@ -39,7 +39,8 @@
     "http-errors": "^2.0.0",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -53,7 +54,6 @@
     "nodemon": "^3.1.4",
     "prettier-plugin-ejs": "^1.0.3",
     "prisma": "^5.18.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "ts-node": "^10.9.2"
   }
 }
