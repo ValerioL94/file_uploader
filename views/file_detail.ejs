@@ -14,7 +14,7 @@
         bytes
       </li>
       <li>
-        <strong style="min-width: fit-content;">File url:</strong>
+        <strong style="min-width: fit-content">File url:</strong>
         <a href="<%= file.url %>" style="overflow-wrap: anywhere"
           ><%= file.url %></a
         >
@@ -24,7 +24,13 @@
         <%= file.createdAt.toLocaleString() %>
       </li>
       <li>
-        <strong>Download:</strong> <a href="<%= file.id %>/download" class="file-link"><img style="height: 30px;" src="/images/cloud.png" alt="cloud download icon"></a>
+        <strong>Download:</strong>
+        <a href="<%= file.id %>/download" class="file-link"
+          ><img
+            style="height: 30px"
+            src="/images/cloud.png"
+            alt="cloud download icon"
+        /></a>
       </li>
     </ul>
   </div>
