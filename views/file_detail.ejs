@@ -3,28 +3,28 @@
 <div class="gen-container">
   <% if (locals.user) { %>
   <div>
-    <ul>
+    <ul class="file-ul-detail">
       <li>
-        File name:
+        <strong>File name:</strong>
         <%= file.title %>
       </li>
       <li>
-        File size:
+        <strong>File size:</strong>
         <%= file.size %>
         bytes
       </li>
       <li>
-        File url:
+        <strong style="min-width: fit-content;">File url:</strong>
         <a href="<%= file.url %>" style="overflow-wrap: anywhere"
           ><%= file.url %></a
         >
       </li>
       <li>
-        Upload time:
+        <strong>Upload time:</strong>
         <%= file.createdAt.toLocaleString() %>
       </li>
       <li>
-        Download: <a href="<%= file.id %>/download">link</a>
+        <strong>Download:</strong> <a href="<%= file.id %>/download" class="file-link"><img style="height: 30px;" src="/images/cloud.png" alt="cloud download icon"></a>
       </li>
     </ul>
   </div>
