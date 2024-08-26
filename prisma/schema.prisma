@@ -34,14 +34,16 @@ model Folder {
 }
 
 model File {
-  id        String   @id @default(uuid())
-  title     String
-  size      Int
-  url       String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  folder    Folder?  @relation(fields: [folderId], references: [id])
-  folderId  String?
+  id            String   @id @default(uuid())
+  title         String
+  size          Int
+  url           String
+  format        String
+  resource_type String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  folder        Folder?  @relation(fields: [folderId], references: [id])
+  folderId      String?
 }
 
 model Session {
