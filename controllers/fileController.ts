@@ -107,12 +107,16 @@ export const file_download_get = asyncHandler(async (req, res, next) => {
     where: { id: req.params.fileId },
   });
   const fileName = `${file?.title}.${file?.format}`;
-  https.get(file!.url, function (myfile) {
-    res.set(
-      'Content-disposition',
-      'attachment; filename=' + encodeURI(fileName)
-    );
-    res.set({ 'Content-Type': `${file?.resource_type}/${file?.format}` });
-    myfile.pipe(res);
-  });
+  https
+    .get(file!.url, function (myfile) {
+      res.set(
+        'Content-disposition',
+        'attachment; filename=' + encodeURI(fileName)
+      );
+      res.set({ 'Content-Type': `${file?.resource_type}/${file?.format}` });
+      myfile.pipe(res);
+    })
+    .on('error', (err) => {
+      return next(err);
+    });
 });
