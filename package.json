@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "buildWatch": "npx tsc -w",
-    "start": "node app.js",
+    "start": "prisma db push --skip-generate && node app.js",
     "dev": "nodemon app.ts",
     "killport": "kill -9 $(lsof -t -i:3000)",
     "ejs": "npx prettier --plugin=prettier-plugin-ejs --write  views"
