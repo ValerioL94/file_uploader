@@ -17,7 +17,11 @@ export const file_list_get = asyncHandler(async (req, res, next) => {
 });
 
 export const file_upload_get = asyncHandler(async (req, res, next) => {
-  res.render('file_form', { title: 'File upload', user: req.user });
+  res.render('file_form', {
+    title: 'File upload',
+    user: req.user,
+    type: 'create',
+  });
 });
 
 export const file_upload_post = [
@@ -62,8 +66,33 @@ export const file_detail_get = asyncHandler(async (req, res, next) => {
   });
   res.render('file_detail', { title: file?.title, file, user: req.user });
 });
-// export const file_edit_get = asyncHandler(async (req, res, next) => {});
-// export const file_edit_post = asyncHandler(async (req, res, next) => {});
+
+export const file_edit_get = asyncHandler(async (req, res, next) => {
+  const file = await prisma.file.findUnique({
+    where: { id: req.params.fileId },
+  });
+  res.render('file_form', {
+    title: 'Update file title',
+    user: req.user,
+    type: 'update',
+    file,
+  });
+});
+export const file_edit_post = asyncHandler(async (req, res, next) => {
+  const newTitle = req.body.file_name;
+  await prisma.file.update({
+    where: { id: req.params.fileId },
+    data: { title: newTitle },
+  });
+  res.redirect(`/folders/${req.params.folderId}/files`);
+});
+
+export const folder_delete_get = asyncHandler(async (req, res, next) => {
+  await prisma.folder.delete({
+    where: { id: req.params.folderId },
+  });
+  res.redirect('/folders');
+});
 
 export const file_delete_get = asyncHandler(async (req, res, next) => {
   await prisma.file.delete({

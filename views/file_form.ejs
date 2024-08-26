@@ -1,25 +1,39 @@
 <%- contentFor('page') %>
 
 <% if (locals.user) { %>
-<form enctype="multipart/form-data" method="POST">
-  <div class="form-group">
-    <input
-      type="file"
-      class="form-control-file"
-      name="uploaded_file"
-      required
-    />
-    <span style="color: crimson"> - File size must not exceed 1MB</span>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="File name..."
+  <% if (type === 'update') { %>
+   <form method="POST">
+    <div class="form-group">
+      <input type="text" class="form-control"
+      value="<%= file.title %>"
       name="file_name"
       required
-    />
-    <button type="submit" class="form-submit">Submit</button>
-  </div>
-</form>
+      >
+      <button type="submit" class="form-submit">Update</button>
+    </div>
+   </form>
+  <% } else { %>
+    <form enctype="multipart/form-data" method="POST">
+      <div class="form-group">
+        <input
+          type="file"
+          class="form-control-file"
+          name="uploaded_file"
+          required
+        />
+        <span style="color: crimson"> - File size must not exceed 1MB</span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="File name..."
+          name="file_name"
+          required
+        />
+        <button type="submit" class="form-submit">Submit</button>
+      </div>
+    </form>
+  <% } %>
+
 <% if (locals.error) { %>
 <ul class="error-list">
   <li><%= error %></li>
