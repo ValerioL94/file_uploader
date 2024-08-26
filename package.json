@@ -40,10 +40,10 @@
     "multer": "^1.4.5-lts.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "prisma": "^5.18.0",
-    "typescript": "^5.5.4"
+    "prisma": "^5.18.0"
   },
   "devDependencies": {
+    "@rnm/tscx": "^0.1.4",
     "@types/bcryptjs": "^2.4.6",
     "@types/express": "^4.17.21",
     "@types/express-ejs-layouts": "^2.5.4",
@@ -54,6 +54,7 @@
     "@types/passport-local": "^1.0.38",
     "nodemon": "^3.1.4",
     "prettier-plugin-ejs": "^1.0.3",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }
