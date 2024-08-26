@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import prisma from '../prisma/client';
+import { Request, Response, NextFunction } from 'express';
 
 export const folder_list_get = asyncHandler(async (req, res, next) => {
   const folders = await prisma.folder.findMany({
@@ -16,11 +17,17 @@ export const folder_create_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const folder_create_post = asyncHandler(async (req, res, next) => {
+  interface authReq extends Request {
+    user?: {
+      id?: string;
+    }
+  }
+
+export const folder_create_post = asyncHandler(async (req: authReq, res: Response, next: NextFunction) => {
   await prisma.folder.create({
     data: {
       title: req.body.title,
-      user: { connect: { id: req.user.id } },
+      user: { connect: { id: req.user?.id } },
     },
   });
   res.redirect('/folders');

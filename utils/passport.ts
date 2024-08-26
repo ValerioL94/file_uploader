@@ -24,15 +24,21 @@ const strategy = new LocalStrategy(
   }
 );
 
+declare namespace Express{
+  interface User {
+    id?: string;
+  }
+}
+
 passport.use(strategy);
 passport.serializeUser((user: Express.User, done) => {
   done(null, user.id);
 });
 
-passport.deserializeUser(async (id: Express.User['id'], done) => {
+passport.deserializeUser(async (userId: Express.User["id"], done) => {
   try {
     const user = await prisma.user.findUnique({
-      where: { id: id },
+      where: { id: userId },
     });
     done(null, user);
   } catch (error) {
