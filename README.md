@@ -7,3 +7,5 @@ Building a simple version of a personal storage service
 -Folder and file icons: https://www.flaticon.com/authors/freepik
 
 -Download icon: https://www.flaticon.com/authors/graphicmall
+
+-TO DO: add share functionality
