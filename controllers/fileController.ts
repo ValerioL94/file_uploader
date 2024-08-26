@@ -47,6 +47,8 @@ export const file_upload_post = [
         title: req.body.file_name,
         size: result.bytes,
         url: result.secure_url,
+        resource_type: result.resource_type,
+        format: result.format,
         folder: { connect: { id: folder!.id } },
       },
     });
@@ -54,6 +56,12 @@ export const file_upload_post = [
   }),
 ];
 
+export const file_detail_get = asyncHandler(async (req, res, next) => {
+  const file = await prisma.file.findUnique({
+    where: { id: req.params.fileId },
+  });
+  res.render('file_detail', { title: file?.title, file, user: req.user });
+});
 // export const file_edit_get = asyncHandler(async (req, res, next) => {});
 // export const file_edit_post = asyncHandler(async (req, res, next) => {});
 
@@ -62,4 +70,20 @@ export const file_delete_get = asyncHandler(async (req, res, next) => {
     where: { id: req.params.fileId },
   });
   res.redirect(`/folders/${req.params.folderId}/files`);
+});
+
+import https from 'https';
+export const file_download_get = asyncHandler(async (req, res, next) => {
+  const file = await prisma.file.findUnique({
+    where: { id: req.params.fileId },
+  });
+  const fileName = `${file?.title}.${file?.format}`;
+  https.get(file!.url, function (myfile) {
+    res.set(
+      'Content-disposition',
+      'attachment; filename=' + encodeURI(fileName)
+    );
+    res.set({ 'Content-Type': `${file?.resource_type}/${file?.format}` });
+    myfile.pipe(res);
+  });
 });
