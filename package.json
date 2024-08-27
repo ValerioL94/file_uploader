@@ -4,10 +4,7 @@
   "description": "Building a simple version of a personal storage service",
   "main": "app.js",
   "scripts": {
-    "build": "npx tsc",
     "start": "prisma db push && node app.js",
-    "dev": "nodemon app.ts",
-    "copy": "npx tscx --copyfiles",
     "killport": "kill -9 $(lsof -t -i:3000)",
     "ejs": "npx prettier --plugin=prettier-plugin-ejs --write  views"
   },
