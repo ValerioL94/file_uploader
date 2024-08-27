@@ -10,6 +10,7 @@
       id="title"
       class="form-control"
       minlength="1"
+      value="<%= locals.type === 'update' ? folder.title : '' %>"
       placeholder="New Folder"
     />
     <button class="form-submit" type="submit">Confirm</button>
